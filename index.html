@@ -5,164 +5,147 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tect</title>
   <style>
-    * {
-    margin: 0;
-    padding: 0;
+
+    .body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0 auto;
+      padding: 0 auto;
     }
 
-    .tree {
-    position: relative;
-    overflow: hidden;
-    padding: 0 0 20px 0;
+    .structure {
+      position: relative;
     }
 
-    .tree ul {
-    position: relative;
-    padding: 20px 0;
-    transition: all 0.5s;
+    .link {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 24px;
+      padding: 24px;
+      border: 1px solid black;
+      color: black;
     }
 
-    .tree li {
-    list-style-type: none;
-    float: left;
-    position: relative;
-    padding: 20px 5px 0 5px;
-    text-align: center;
-    transition: all 0.5s;
+    .list {
+      position: relative;
+      display: table;
+      margin: 5px 0 0 0;
+      padding: 6px 0 0 0;
+      text-align: center;
     }
 
-    .tree li::before,
-    .tree li::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 50%;
-    width: 50%;
-    height: 20px;
-    border-top: 1px solid #ccc;
+    .structure li {
+      list-style-type: none;
+      position: relative;
+      display: table-cell;
+      position: relative;
+      padding: 32px 5px 0 5px;
+      text-align: center;
     }
 
-    .tree li::after {
-    right: auto;
-    left: 50%;
-    border-left: 1px solid #ccc;
+    .structure li:not(:only-child) {
+      padding: 32px .5em;
     }
 
-    .tree li:only-child::after,
-    .tree li:only-child::before {
-    display: none;
+    .structure li::before,
+    .structure li::after {
+      height: 32px;
+      border-top: 1px solid black;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      width: 50%;
     }
 
-    .tree li:only-child {
-    padding-top: 0;
+    .structure li::after {
+      right: auto;
+      left: 50%;
+      border-left: 1px solid black;
     }
 
-    .tree li:first-child::before,
-    .tree li:last-child::after {
-    border: 0 none;
+    .structure li:only-child::before {
+      display: none;
     }
 
-    .tree li:last-child::before {
-    border-right: 1px solid #ccc;
-    border-radius: 0 2px 0 0;
+    .structure li:only-child {
+      padding-top: 0;
     }
 
-    .tree li:first-child::after {
-    border-radius: 2px 0 0 0;
+    .structure li:first-child::before,
+    .structure li:last-child::after {
+      border: 0 none;
     }
 
-    .tree ul ul::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 0;
-    height: 20px;
-    border-left: 1px solid #ccc;
+    .structure li:last-child::before {
+      border-right: 1px solid black;
     }
 
-    .tree li a {
-    display: inline-block;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    text-decoration: none;
-    color: #555;
-    font-size: 16px;
-    transition: all 0.5s;
+    .structure ul ul::before {
+      height: 12px;
+      border-left: 1px solid black;
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      width: 0;
     }
 
-    .tree li a:hover,
-    .tree li a:hover+ul li a {
-    border: 1px solid cornflowerblue;
-    background: lightskyblue;
-    color: #000;
+    .link:hover,
+    .link:hover+ul li a {
+    background: plum;
     }
 
-    .tree li a:hover+ul li::after,
-    .tree li a:hover+ul li::before,
-    .tree li a:hover+ul::before,
-    .tree li a:hover+ul ul::before {
-    border-color: #999;
-    }
-
-    img {
-    display: block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    opacity: 0.4;
-    }
-
-    .tree li a:hover img,
-    .tree li a:hover+ul img {
-    opacity: 0.8;
+    .link:hover+ul li::after,
+    .link:hover+ul li::before,
+    .link:hover+ul::before,
+    .link:hover+ul ul::before {
+    border-color: plum;
     }
 
   </style>
   </head>
-    <body class="page">
-        <div class="tree">
-            <ul>
+  <body class="body">
+    <div class="structure">
+        <ul class="list">
+          <li class="line">
+            <a class="link" href="#">Parent</a>
+            <ul class="list">
+              <li class="line">
+                <a class="link" href="#">Child</a>
+                <ul class="list">
+                  <li class="line">
+                    <a class="link" href="#">Grand Child</a>
+                  </li>
+                </ul>
+              </li>
               <li>
-                <a href="#">Parent</a>
-                <ul>
+                <a class="link" href="#">Child</a>
+                <ul class="list">
+                  <li class="line">
+                    <a class="link" href="#">Grand Child</a>
+                  </li>
                   <li>
-                    <a href="#">Child</a>
-                    <ul>
-                      <li>
-                        <a href="#">Grand Child</a>
+                    <a class="link" href="#">Grand Child</a>
+                    <ul class="list">
+                      <li class="line">
+                        <a class="link" href="#">Great Grand Child</a>
+                      </li>
+                      <li class="line">
+                        <a class="link" href="#">Great Grand Child</a>
+                      </li>
+                      <li class="line">
+                        <a class="link" href="#">Great Grand Child</a>
                       </li>
                     </ul>
                   </li>
                   <li>
-                    <a href="#">Child</a>
-                    <ul>
-                      <li>
-                        <a href="#">Grand Child</a>
-                      </li>
-                      <li>
-                        <a href="#">Grand Child</a>
-                        <ul>
-                          <li>
-                            <a href="#">Great Grand Child</a>
-                          </li>
-                          <li>
-                            <a href="#">Great Grand Child</a>
-                          </li>
-                          <li>
-                            <a href="#">Great Grand Child</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="#">Grand Child</a>
-                      </li>
-                    </ul>
+                    <a class="link" href="#">Grand Child</a>
                   </li>
                 </ul>
               </li>
             </ul>
-          </div>
-    </body>
+          </li>
+        </ul>
+      </div>
+</body>
 </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tect</title>
+  <style>
+
+.tree li::after{
+    content: '';
+    position: absolute; top: 0;
+
+    width: 3%; height: 50px;
+    right: auto; left: -2.5%;
+
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-radius: 0 0 0 5px;
+    -webkit-border-radius: 0 0 0 5px;
+    -moz-border-radius: 0 0 0 5px;
+}
+.tree li.two-step::after{
+    top: -100px;
+    height: 150px;
+}
+
+.tree li.three-step::after{
+    top: -180px;
+    height: 230px;
+}
+
+  </style>
+  </head>
+    <body class="body">
+        <div class="tree">
+            <ul>
+                <li>
+                    <a href="#">Parent</a>
+                    <ul>
+                        <li><a href="#">Child</a>
+                            <ul>
+                                <li><a href="#">Grand Child</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Child</a>
+                            <ul>
+                                <li><a href="#">Grand Child</a></li>
+                                <li><a href="#">Grand Child</a>
+                                    <ul>
+                                        <li><a href="#">Great Grand Child</a></li>
+                                        <li><a href="#">Great Grand Child</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
